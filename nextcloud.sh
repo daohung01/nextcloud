@@ -49,7 +49,7 @@ sudo chown -R www-data:www-data /srv/nextcloud/
 
 mkdir /etc/apache2/sslcert
 cd /etc/apache2/sslcert
-
+sudo a2query -m ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout web.key -out web.crt <<EOF
 VN
 HaNoi
@@ -110,7 +110,7 @@ EOF
 trust=/srv/nextcloud/config/config.php
 cat > $trust <<EOF
 <?php
-$CONFIG = array (
+\$CONFIG = array (
   'instanceid' => 'oczei7okcxtb',
   'passwordsalt' => 'KHqWbOcjKqgTQeA7f9j3VVCj1X5bIv',
   'secret' => 'Ztt9Uz5dRorDBMOZPxNe1EJ1303FiYYclzZUpfzYQlfTAwc0',
