@@ -105,39 +105,38 @@ cat > $nextcloud <<EOF
     </Directory>
 </VirtualHost>
 EOF
+# trust=/srv/nextcloud/config/config.php
+# cat > $trust <<EOF
+# <?php
+# $CONFIG = array (
+#   'instanceid' => 'oczei7okcxtb',
+#   'passwordsalt' => 'KHqWbOcjKqgTQeA7f9j3VVCj1X5bIv',
+#   'secret' => 'Ztt9Uz5dRorDBMOZPxNe1EJ1303FiYYclzZUpfzYQlfTAwc0',
+#   'trusted_domains' =>
+#      [
+#       'nextcloudutt.ddns.net',
+#       'nextcloudutt.ddns.net',
+#       '10.10.99.157',
+#       '[2001:db8::1]'
+#     ],
+#   array (
+#     0 => '10.10.99.157',
+#   ),
+#   'datadirectory' => '/srv/nextcloud/data',
+#   'dbtype' => 'mysql',
+#   'version' => '27.1.3.2',
+#   'overwrite.cli.url' => 'http://nextcloudutt.ddns.net',
+#   'dbname' => 'nextcloud',
+#   'dbhost' => 'localhost',
+#   'dbport' => '',
+#   'dbtableprefix' => 'oc_',
+#   'mysql.utf8mb4' => true,
+#   'dbuser' => 'nextcloud',
+#   'dbpassword' => 'StrongPassword',
+#   'installed' => true,
+# );
+# EOF
 
-
-trust=/srv/nextcloud/config/config.php
-cat > $trust <<EOF
-<?php
-\$CONFIG = array (
-  'instanceid' => 'oczei7okcxtb',
-  'passwordsalt' => 'KHqWbOcjKqgTQeA7f9j3VVCj1X5bIv',
-  'secret' => 'Ztt9Uz5dRorDBMOZPxNe1EJ1303FiYYclzZUpfzYQlfTAwc0',
-  'trusted_domains' =>
-     [
-      'nextcloudutt.ddns.net',
-      'nextcloudutt.ddns.net',
-      '10.10.99.157',
-      '[2001:db8::1]'
-    ],
-  array (
-    0 => '10.10.99.157',
-  ),
-  'datadirectory' => '/srv/nextcloud/data',
-  'dbtype' => 'mysql',
-  'version' => '27.1.3.2',
-  'overwrite.cli.url' => 'http://nextcloudutt.ddns.net',
-  'dbname' => 'nextcloud',
-  'dbhost' => 'localhost',
-  'dbport' => '',
-  'dbtableprefix' => 'oc_',
-  'mysql.utf8mb4' => true,
-  'dbuser' => 'nextcloud',
-  'dbpassword' => 'StrongPassword',
-  'installed' => true,
-);
-EOF
-
+sudo a2enmod ssl
 sudo a2enmod rewrite dir mime env headers
 sudo systemctl restart apache2
