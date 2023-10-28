@@ -64,22 +64,8 @@ EOF
 nextcloud=/etc/apache2/conf-enabled/nextcloud.conf
 cat > $nextcloud <<EOF
 <VirtualHost *:80>
-     ServerAdmin admin@nextcloudutt.ddns.net
-     DocumentRoot /srv/nextcloud/
      ServerName nextcloudutt.ddns.net
-     ServerAlias www.nextcloudutt.ddns.net
-     ErrorLog /var/log/apache2/nextcloud-error.log
-     CustomLog /var/log/apache2/nextcloud-access.log combined
-    <Directory /srv/nextcloud/>
-        Options +FollowSymlinks
-        AllowOverride All
-        Require all granted
-        SetEnv HOME /srv/nextcloud
-        SetEnv HTTP_HOME /srv/nextcloud
-        <IfModule mod_dav.c>
-          Dav off
-        </IfModule>
-    </Directory>
+     Redirect / https://nextcloudutt.ddns.net/
 </VirtualHost>
 
 <VirtualHost _default_:443>
