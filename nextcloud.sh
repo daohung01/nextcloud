@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
-sudo add-apt-repository ppa:ondrej/php 
+sudo add-apt-repository ppa:ondrej/php -y
 
 sudo apt update && sudo apt install php8.2 -y
 sudo apt install php8.2-{bcmath,xml,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi} -y
