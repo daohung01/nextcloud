@@ -64,15 +64,15 @@ EOF
 nextcloud=/etc/apache2/conf-enabled/nextcloud.conf
 cat > $nextcloud <<EOF
 <VirtualHost *:80>
-     ServerName nextcloudutt.ddns.net
-     Redirect / https://nextcloudutt.ddns.net/
+     ServerName http://dunglm-nextcloud.servehttp.com/
+     Redirect / https://http://dunglm-nextcloud.servehttp.com//
 </VirtualHost>
 
 <VirtualHost _default_:443>
-     ServerAdmin admin@nextcloudutt.ddns.net
+     ServerAdmin admin@http://dunglm-nextcloud.servehttp.com/
      DocumentRoot /srv/nextcloud/
-     ServerName nextcloudutt.ddns.net
-     ServerAlias www.nextcloudutt.ddns.net
+     ServerName http://dunglm-nextcloud.servehttp.com/
+     ServerAlias www.http://dunglm-nextcloud.servehttp.com/
      ErrorLog /var/log/apache2/nextcloud-error.log
      CustomLog /var/log/apache2/nextcloud-access.log combined
      SSLEngine on
@@ -100,8 +100,8 @@ EOF
 #   'secret' => 'Ztt9Uz5dRorDBMOZPxNe1EJ1303FiYYclzZUpfzYQlfTAwc0',
 #   'trusted_domains' =>
 #      [
-#       'nextcloudutt.ddns.net',
-#       'nextcloudutt.ddns.net',
+#       'http://dunglm-nextcloud.servehttp.com/',
+#       'http://dunglm-nextcloud.servehttp.com/',
 #       '10.10.99.157',
 #       '[2001:db8::1]'
 #     ],
@@ -111,7 +111,7 @@ EOF
 #   'datadirectory' => '/srv/nextcloud/data',
 #   'dbtype' => 'mysql',
 #   'version' => '27.1.3.2',
-#   'overwrite.cli.url' => 'http://nextcloudutt.ddns.net',
+#   'overwrite.cli.url' => 'http://http://dunglm-nextcloud.servehttp.com/',
 #   'dbname' => 'nextcloud',
 #   'dbhost' => 'localhost',
 #   'dbport' => '',
